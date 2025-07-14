@@ -41,7 +41,8 @@ if [ ! -d "$DEST_DIR" ]; then
   cd -
 else
   cd "$DEST_DIR"
-  git pull --quiet --rebase $REMOTE $BRANCH
+  git fetch --depth=1 origin \
+  && git pull --quiet --rebase $REMOTE $BRANCH
   cd -
 fi
 
